@@ -55,6 +55,7 @@ span.total {
     display: inline-block;
     align-content: center;
     width: 150px;
+    margin-bottom: 5em;
 }
 h1 {
     font-size: 35px;
