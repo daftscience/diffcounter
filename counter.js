@@ -21,7 +21,12 @@ var seedCells = {
     Megakaryocytes: "mega",
     "Plasma Cells": "plasma"
 };
+function toggleDisableX3(){
+ toggleDisable();
+ toggleDisable();
+ toggleDisable();
 
+}
 jQuery(document).keydown(function (e) {
     KeyCheck(e);
     $('#debug').html("Key pressed: " + e.keyCode + " Editing =" + editing + " Adding = " + adding);
@@ -413,9 +418,7 @@ function KeyCheck(evt) {
         return;
     case 69: //edit mode
 //For some reason internet explorer will display the page properly if I do this times three. #whatTheFuck!
-        toggleDisable();
-        toggleDisable();
-	toggleDisable();
+	toggleDisableX3();
 	evt.preventDefault();
         return;
     case 82: //reset
