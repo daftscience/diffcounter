@@ -3,6 +3,7 @@ var adding = true;
 var countTo = 100;
 var KeyID;
 var diffName;
+var nag = false;
 
 
 var seedCells = {
@@ -30,7 +31,7 @@ function toggleDisableX3(){
 
 jQuery(document).keydown(function (e) {
     KeyCheck(e);
-    $('#debug').html("Key pressed: " + e.keyCode + " Editing =" + editing + " Adding = " + adding);
+    $('#debug').html("Key pressed: " + e.keyCode + "<br /> Editing =" + editing + "<br /> Adding = " + adding + "<br /> Nagging = "+ nag);
 
 });
 
@@ -169,10 +170,11 @@ function initScripts() {
 
 }
 
+
 if (window.addEventListener) {
     // create the keys and konami variables
     var keys = [],
-        konami = "38,38,40,40,37,39,37,39,66,65";
+    konami = "38,38,40,40,37,39,37,39,66,65";
     debug = "38,38,38,40,40,40";
     jillian = "74,73,76,76,73,65,78";
     kitty = "75,73,84,84,89";
@@ -260,7 +262,22 @@ function toggleDisable(option) {
     document.getElementById('safeFocus').focus();
     $("#lockButton").removeClass("fa-lock");
     $("#lockButton").removeClass("fa-unlock");
-    document.activeElement.blur();
+
+    
+    var ae = document.activeElement.nodeName.toLowerCase();
+    try {
+    // Support: IE9+
+    // If the <body> is blurred, IE will switch windows, see #9520
+    if ( document.activeElement && ae !== "body" && ae !== "html") {
+        // Blur any element that currently has focus, see #4261
+        $( document.activeElement ).blur();
+    }
+} catch ( error ) {}
+    
+    
+    
+    
+    
     toggleSubtract('addEdit');
     //check if the disabled flag is set and toggle it. Change content to refect the new mode.
     if ($('#edit').is(':visible')) {
@@ -511,16 +528,23 @@ function recalc() {
     //Check if finished with diff
     //    document.getElementById('maxNum').value
  
-    if (tot > countTo){
+    if (tot < countTo){
+	nag = false;
+	}
+    if (tot > countTo && !nag){
         window.alert("someone's an overachiever, you've somehow counted more than " + countTo + " cells!");
-    }
-    if (tot == countTo) {
-        if(!editing){
-        changeAlert('done');
-        window.alert('way to go!');
+    	nag = true;
+	}
+    if (tot == countTo && !nag ) {
+        if(!editing && !nag){
+          changeAlert('done');
+          window.alert('way to go!');
+	  nag = true;
         }
     }
 }
+
+
 
 function normalize() {
     var runningTotal = document.getElementById('total').innerHTML;
