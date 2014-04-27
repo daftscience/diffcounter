@@ -253,8 +253,13 @@ bt {
     font-size: 40px;
     color: #1abc9c;
 }
+.fa {
+	text-rendering: auto;
+	font-variant: normal;
+}
 .fa-white {
     color: #ffffff;
+	padding: 0;
 }
 .fa-list {
     color: #1abc9c;
