@@ -412,8 +412,11 @@ function KeyCheck(evt) {
         evt.preventDefault();
         return;
     case 69: //edit mode
+//For some reason internet explorer will display the page properly if I do this times three. #whatTheFuck!
         toggleDisable();
-        evt.preventDefault();
+        toggleDisable();
+	toggleDisable();
+	evt.preventDefault();
         return;
     case 82: //reset
         resetForm();
