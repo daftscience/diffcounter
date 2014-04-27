@@ -22,11 +22,12 @@ var seedCells = {
     "Plasma Cells": "plasma"
 };
 function toggleDisableX3(){
+//window.alert("in toggleDisableX3");
  toggleDisable();
  toggleDisable();
  toggleDisable();
-
 }
+
 jQuery(document).keydown(function (e) {
     KeyCheck(e);
     $('#debug').html("Key pressed: " + e.keyCode + " Editing =" + editing + " Adding = " + adding);
@@ -254,6 +255,7 @@ function changeAlert(activateAlert) {
 } //cleaned
 
 function toggleDisable(option) {
+//window.alert("in toggleDisable");
     //switch back to addition mode.
     document.getElementById('safeFocus').focus();
     $("#lockButton").removeClass("fa-lock");
