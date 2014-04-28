@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-placeholder-focus="true">
 
 <head>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -10,7 +10,8 @@
 <script> 
 var hasIE_ughhh = true;
 </script>
-<![endif]-->
+<![endif]-->  
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Differential counter">
@@ -31,15 +32,29 @@ var hasIE_ughhh = true;
     <!--[if !IE]>
 <script src="assets/js/hover.zoom.js"></script>
 <script src="assets/js/hover.zoom.conf.js"></script>
+<audio id="tardis" src="tardis.wav" preload="auto"></audio>
+
 <![endif]-->
+
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-    <!--MY edits-->
+    
+    
+    
+<!--[if IE 7]>
+<script>var whichIE=7;</script>
+<link href="assets/css/bootstrap-ie7.css" rel="stylesheet">
+<link rel="stylesheet" media="all" href="assets/css/font-awesome-ie7.min.css">
+<![endif]-->
     <script>
         window.focused = "#FFD387";
     </script>
-    <script src="counter.js"></script>
-    <audio id="tardis" src="tardis.wav" preload="auto"></audio>
+    <script src="assets/js/counter.js"></script>
+    
+    
+    
+    
+  
     <!--THe color scheme used in this site can be found here: -->
     <!--http://colorschemedesigner.com/#3c41TrpDHw0w0-->
     <!--http://colorschemedesigner.com/#3c31TrpDHw0w0-->
@@ -162,11 +177,13 @@ This site looks much prettier on Google Chrome and Firefox. If you can't use eit
                         <input type="hidden" name="is_private" value="100" />
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-warning" onclick="toggleDisableX3();">
-                            <i class="fa fa-lock" id="lockButton"></i>Edit</button>
-                        <button type="button" class="btn btn-default btn-danger" onclick="resetForm();">
+                		<button type="button" class="btn btn-default btn-warning" id="subtractBTN">
+                            <i class="fa fa-minus" id="subtractIcon"></i></button>
+                        <button type="button" class="btn btn-default btn-warning" id="editBTN">
+                            <i class="fa fa-lock lockIcons"></i>Edit</button>
+                        <button type="button" class="btn btn-default btn-danger" id="resetBTN">
                             <i class="fa fa-eraser"></i>Reset</button>
-                        <button type="button" class="btn btn-default btn-primary" onclick="window.print();">
+                        <button type="button" class="btn btn-default btn-success" id="printBTN">
                             <i class="fa fa-print"></i>Print</button>
                     </div>
                 </div>
@@ -177,11 +194,14 @@ This site looks much prettier on Google Chrome and Firefox. If you can't use eit
             <div class="row mt container-fluid centered counter">
                 <div class="col-md-3 col-lg-3 visible-lg visible-md"></div>
                 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                    <div class="input-group input-group-lg">
+                    <div class="input-group">
                         <span class="input-group-addon">
-                            <i class="fa fa-barcode" id="safeFocus" onclick="toggleDisableX3();"></i>
+                        	<span class="fa-stack">
+                                <i class="fa fa-lock lockIcons fa-stack-1x"></i> 
+                                <i class="fa fa-barcode fa-stack-2x" id="safeFocus" onclick="toggleDisableX3();"></i>
+                        	</span>
                         </span>
-                        <input type="text" id="diffName" class="form-control" placeholder="Differential I.D." disabled>
+                        <input type="text" id="diffName" class="form-control" placeholder="scan barcode here">
                     </div>
                 </div>
                 <div class="col-md-3 col-lg-3 visible-lg visible-md"></div>
@@ -397,11 +417,11 @@ This site looks much prettier on Google Chrome and Firefox. If you can't use eit
         <a id="toTop" href="#">
             <div class="to-top"></div>
         </a>
-        <!-- Bootstrap core JavaScript
-================================================== -->
+        <!-- Bootstrap core JavaScript================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+				<script src="assets/js/placeholders.min.js"></script>
     </div>
     <!--      non printable-->
 </body>
