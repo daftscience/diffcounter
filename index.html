@@ -83,14 +83,14 @@ var hasIE_ughhh = true;
                     <div class="row">
 		       <div class="col-lg-8 col-lg-offset-2 centered">
                            <img src="assets/img/header.png" alt="soo realistic" class="img-responsive centered">
- <!--[if IE ]>
+ <!--[if lte IE 8 ]>
 <br />
 <br />
 <div id="iesucks" class="alert alert-danger">
 <p>
 <strong>
-If the buttons might bunch together when you hit edit the first time. It will go back to normal the next time you press it.
-Internet explorer is a silly goose. 
+If the buttons bunch together when you hit edit button, they will go back to normal the next time its pressed.
+<p>Internet explorer can be a silly goose. </p>
 </strong>
 </p>
 </div>
@@ -100,7 +100,7 @@ Internet explorer is a silly goose.
                             </h1>
                             <p>This app was built to help Medical Laboratory Science students practice differentials. It works best using the 10 key pad. If you have any questions just click the "Tips" link at the top of the page, or scroll down.</p>
                             <p>
-                                <u>IMPORTANT:</u>It is for practice purposes only, not intended for clinical differentials. There are known, and possibly unknown mathematical errors in how relative values and non-white cells are calculated. Please double check any values you get.
+                                <u>IMPORTANT:</u> This is for practice purposes only, not intended for clinical differentials. There are known, and possibly unknown mathematical errors in how relative values are calculated (rounding errors: see below.) Please double check any values you get.
                             </p>
                         </div>
                         <!-- /col-lg-8 -->
@@ -348,9 +348,9 @@ Internet explorer is a silly goose.
                             <dd>
                                 <p>In standard rounding rules it is common for numbers ending in 5 to be rounded up. However, because n.5 is exactly between its nearest integers, always rounding up will create a positive bias.</p>
                                 <p>In order to correct that bias the Diff-o-Matic uses a
-                                    <strong>Round to Even</strong>method. This will round any number ending in .5 to the nearest even integer (e.g. 2.5 -> 2 .)
+                                    <strong>Round to Even</strong> method. This will round any number ending in .5 to the nearest even integer (e.g. 2.5 -> 2 .)
                                 </p>
-                                <p>Unfortunately, this will cause relative counts of 0.5 to be rounded down to 0. The worlds top engineers, scientists, and barista have been working on this issue around the clock, a patch will be released shortly.</p>
+                                <p>Unfortunately, this will cause relative values of 0.5 to be rounded down to 0. The worlds top engineers, scientists, and barista have been working on this issue around the clock, a patch will be released shortly.</p>
                             </dd>
                         </dl>
                     </div>
